@@ -155,12 +155,37 @@
         /* Formulario de registro oculto por defecto */
         .form-container {
             display: none;
-            padding: 20px;
+            padding: 30px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            max-width: 600px;
             margin: 50px auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-container .btn-cancel {
+            background-color: #f44336; /* Color rojo para el botón de cancelar */
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .form-container .btn-cancel:hover {
+            background-color: #e53935; /* Cambio de color cuando pasa el mouse */
         }
 
         /* Footer */
@@ -191,7 +216,6 @@
             color: #216288;
         }
 
-        /* Asegura que el contenido del Hero Header sea legible en dispositivos pequeños */
         @media screen and (max-width: 768px) {
             .hero-header {
                 height: 35vh; /* Reducir altura para pantallas más pequeñas */
@@ -214,12 +238,13 @@
                 font-size: 1.1rem;
             }
 
-            /* Ajustar imágenes en el header */
-            .uni-header .logo,
-            .uni-header .middle-img,
-            .uni-header .right-img {
-                max-height: 50px; /* Ajustar más aún para pantallas pequeñas */
-                width: auto;
+            .form-container {
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .form-container h2 {
+                font-size: 1.8rem;
             }
         }
 
@@ -243,13 +268,6 @@
 
             .registro-intro .btn {
                 font-size: 1em;
-            }
-
-            /* Ajustar aún más las imágenes en el header */
-            .uni-header .logo,
-            .uni-header .middle-img,
-            .uni-header .right-img {
-                max-height: 40px; /* Asegurarse que las imágenes sean pequeñas en pantallas pequeñas */
             }
         }
     </style>
@@ -294,7 +312,7 @@
 
     <!-- Formulario de registro (inicialmente oculto) -->
     <div class="form-container" id="registerForm">
-        <h2 class="text-center">Formulario de Registro</h2>
+        <h2>Formulario de Registro</h2>
         <form action="procesar_registro.php" method="POST">
             <div class="form-group">
                 <label for="nombre">Nombre Completo</label>
@@ -313,6 +331,7 @@
                 <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+            <button type="button" id="cancelButton" class="btn btn-cancel btn-block">Cancelar</button>
         </form>
     </div>
 
@@ -334,12 +353,18 @@
     <!-- Iconos FontAwesome para redes sociales -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <!-- Script para mostrar el formulario de registro al hacer clic en el enlace -->
+    <!-- Script para mostrar el formulario de registro y cancelar -->
     <script>
         document.getElementById('showRegisterForm').addEventListener('click', function() {
             document.getElementById('registerForm').style.display = 'block';  // Mostrar el formulario de registro
             document.querySelector('.bienvenida').style.display = 'none'; // Ocultar la bienvenida
             document.querySelector('.registro-intro').style.display = 'none'; // Ocultar la introducción
+        });
+
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            document.getElementById('registerForm').style.display = 'none';  // Ocultar el formulario de registro
+            document.querySelector('.bienvenida').style.display = 'block'; // Mostrar la bienvenida
+            document.querySelector('.registro-intro').style.display = 'block'; // Mostrar la introducción
         });
     </script>
 
