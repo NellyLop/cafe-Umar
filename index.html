@@ -70,7 +70,7 @@
 
         /* Estilos para los botones */
         .bienvenida .btn {
-            background-color: #041e4e;
+            background-color: #041e4e; /* Fondo azul */
             color: white;
             padding: 12px 30px;
             font-size: 1.2rem;
@@ -86,7 +86,7 @@
         }
 
         .bienvenida .btn:hover {
-            background-color: #216288;
+            background-color: #216288; /* Cambio a un azul más claro en hover */
         }
 
         /* Estilos para el texto que invita a registrarse */
@@ -146,7 +146,7 @@
             font-size: 1.1rem;
             padding: 12px 30px;
             border-radius: 30px;
-            background-color: #041e4e;
+            background-color: #041e4e; /* Azul de la universidad */
             color: white;
             text-transform: uppercase;
             margin-top: 20px;
@@ -174,18 +174,46 @@
         }
 
         .form-container .btn-cancel {
-            background-color: #f44336; /* Color rojo para el botón de cancelar */
+            background-color: #459fe3; /* Color rojo para el botón de cancelar */
             color: white;
             padding: 12px 30px;
             font-size: 1rem;
             border-radius: 30px;
             text-transform: uppercase;
-            width: 100%;
+            width: 100%; /* Asegura que ambos botones tengan el mismo tamaño */
+            max-width: 250px;
             margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .btn-primary {
+            background-color: #041e4e; /* Color azul de la universidad para registrar */
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            width: 100%; /* Asegura que ambos botones tengan el mismo tamaño */
+            max-width: 250px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .d-flex {
+            display: flex;
+            justify-content: space-between; /* Alinea los botones a los extremos */
+        }
+
+        .d-flex .btn {
+            width: 48%; /* Hace que cada botón ocupe el 48% del espacio disponible */
         }
 
         .form-container .btn-cancel:hover {
-            background-color: #e53935; /* Cambio de color cuando pasa el mouse */
+            background-color: #9ad1f2; /* Cambio de color cuando pasa el mouse */
+        }
+
+        .form-container .btn-primary:hover {
+            background-color: #216288; /* Cambio de color cuando pasa el mouse */
         }
 
         /* Footer */
@@ -330,8 +358,12 @@
                 <label for="confirm-password">Confirmar Contraseña</label>
                 <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
-            <button type="button" id="cancelButton" class="btn btn-cancel btn-block">Cancelar</button>
+            
+            <!-- Fila con los botones de registrar y cancelar -->
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="button" id="cancelButton" class="btn btn-cancel">Cancelar</button>
+            </div>
         </form>
     </div>
 
